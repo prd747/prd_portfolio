@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abida Ahmed Sumaia | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Changed color palette to Emerald Green */
+            --primary: #10b981; 
+            --primary-hover: #059669;
+            --primary-light: #ecfdf5;
+            --primary-text: #065f46;
+            
+            /* Slightly warmer background */
+            --bg-body: #f3f4f6; 
+            --bg-card: #ffffff;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            background-image: radial-gradient(var(--border) 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-hover);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Header / Profile Section */
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .profile-img {
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--bg-card);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.2);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Cards/Sections */
+        section {
+            background: var(--bg-card);
+            border-radius: 16px; /* Rounder corners */
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); /* Softer, larger shadow */
+            border-top: 4px solid transparent;
+            transition: border-color 0.3s ease;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        section:hover {
+            border-top: 4px solid var(--primary);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-main);
+        }
+
+        h2 i {
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 0.6rem;
+            border-radius: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Lists */
+        ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+            margin-left: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.6rem;
+        }
+
+        /* About */
+        .about-text {
+            font-size: 1.05rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        /* Education & Experience Items */
+        .item {
+            margin-bottom: 2rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--primary-light);
+        }
+        
+        .item:last-child {
+            margin-bottom: 0;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.8rem;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--text-main);
+        }
+
+        .item-subtitle {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .item-date {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            background: var(--bg-body);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 500;
+            margin-top: 0.3rem;
+        }
+
+        /* Skills Badges - Redesigned to pills */
+        .skill-group {
+            margin-bottom: 1.8rem;
+        }
+        
+        .skill-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .skill-group-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .badge {
+            background-color: var(--primary-light);
+            color: var(--primary-text);
+            padding: 0.5rem 1.2rem;
+            border-radius: 9999px; /* Pill shape */
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.2);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .project-card {
+            background: var(--bg-body);
+            border-radius: 12px;
+            padding: 1.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            background: var(--bg-card);
+            border-color: var(--primary-light);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .project-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .project-details {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .project-details strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .project-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes wave {
+            0% { transform: rotate( 0.0deg) }
+            10% { transform: rotate(14.0deg) }
+            20% { transform: rotate(-8.0deg) }
+            30% { transform: rotate(14.0deg) }
+            40% { transform: rotate(-4.0deg) }
+            50% { transform: rotate(10.0deg) }
+            60% { transform: rotate( 0.0deg) }
+            100% { transform: rotate( 0.0deg) }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.2rem; }
+            .item-header { flex-direction: column; gap: 0.5rem; }
+            section { padding: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="image.jpeg" alt="Pritom Ranjon Das" class="profile-img" onerror="this.src='https://ui-avatars.com/api/?name=Pritom+Ranjon+Das&background=10b981&color=fff&size=170'">
+        <h1>Hi, I'm Pritom Ranjon Das <span style="display:inline-block; animation: wave 2s infinite; transform-origin: 70% 70%;">👋</span></h1>
+        <p class="tagline">Computer Science & Engineering Student · Machine Learning Enthusiast · Sylhet, Bangladesh</p>
+        
+        <div class="social-links">
+            <a href="mailto:cse_0182220012101260@lus.ac.bd" title="Email Me"><i class="fas fa-envelope"></i></a>
+            <a href="https://linkedin.com/in/sumaia" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/sumaia" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2><i class="fas fa-user"></i> About Me</h2>
+            <p class="about-text">
+                I'm a 4th year CSE student passionate about Machine Learning and building real-world applications. 
+                I love turning ideas into working products — from mobile apps to research-grade ML models.
+            </p>
+            <ul style="list-style-type: none; margin-left: 0;">
+                <li>🎓 Studying <strong>BSc in Computer Science & Engineering</strong> at <strong>Leading University</strong></li>
+                <li>🤖 Passionate about <strong>Machine Learning, Deep Learning & Computer Vision</strong></li>
+                <li>📄 Published researcher in <strong>Explainable AI for Medical Imaging</strong></li>
+                <li>🌱 Currently deepening my knowledge in <strong>Keras, TensorFlow & Linear Algebra</strong></li>
+                <li>🎯 Goal: Build impactful AI-powered solutions</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">BSc in Computer Science & Engineering</div>
+                        <div class="item-subtitle">Leading University — Sylhet, Bangladesh</div>
+                    </div>
+                    <div class="item-date"><i class="far fa-calendar-alt"></i> 2021 – Present (4th Year)</div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.5rem;">
+                    <strong>Relevant Courses:</strong> Machine Learning, Deep Learning, Data Structures, Algorithms, Database Systems, Computer Vision, OOP
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2><i class="fas fa-lightbulb"></i> Skills</h2>
+            
+            <div class="skill-group">
+                <div class="skill-group-title">Machine Learning & AI</div>
+                <div class="badges">
+                    <span class="badge"><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+                    <span class="badge"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Tensorflow_logo.svg" width="16" alt="TF"> TensorFlow</span>
+                    <span class="badge"><span style="color: #D00000; font-weight: bold; font-family: serif;">K</span> Keras</span>
+                    <span class="badge"><i class="fas fa-brain" style="color: #F7931E;"></i> scikit-learn</span>
+                    <span class="badge"><i class="fas fa-square-root-alt" style="color: #013243;"></i> NumPy</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-title">Web & Mobile Development</div>
+                <div class="badges">
+                    <span class="badge"><i class="fab fa-react" style="color: #61DAFB;"></i> React Native</span>
+                    <span class="badge"><i class="fab fa-node-js" style="color: #339933;"></i> Node.js</span>
+                    <span class="badge"><i class="fab fa-js-square" style="color: #F7DF1E;"></i> JavaScript</span>
+                    <span class="badge"><i class="fab fa-html5" style="color: #E34F26;"></i> HTML5</span>
+                    <span class="badge"><i class="fab fa-css3-alt" style="color: #1572B6;"></i> CSS3</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <div class="skill-group-title">Tools & Platforms</div>
+                <div class="badges">
+                    <span class="badge"><i class="fab fa-git-alt" style="color: #F05032;"></i> Git</span>
+                    <span class="badge"><i class="fab fa-github" style="color: #181717;"></i> GitHub</span>
+                    <span class="badge"><i class="fas fa-code" style="color: #007ACC;"></i> VS Code</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2><i class="fas fa-briefcase"></i> Experience</h2>
+            
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">AI Data Trainer & Tester</div>
+                        <div class="item-subtitle">Scale AI · Remote</div>
+                    </div>
+                    <div class="item-date"><i class="far fa-calendar-alt"></i> 2022 – 2026</div>
+                </div>
+                <ul>
+                    <li>Evaluated and tested AI model outputs to improve accuracy and reliability across multiple ML pipelines</li>
+                    <li>Provided structured feedback on model responses, contributing to training data quality for large-scale AI systems</li>
+                    <li>Worked on diverse task types including NLP, code evaluation, and reasoning tasks</li>
+                </ul>
+            </div>
+
+            <div class="item">
+                <div class="item-header">
+                    <div>
+                        <div class="item-title">Private Tutor <span style="font-weight: 400; font-size: 1rem; color: var(--text-muted);">(Mathematics & Computer Science)</span></div>
+                        <div class="item-subtitle">Self-employed · Dhaka, Bangladesh</div>
+                    </div>
+                    <div class="item-date"><i class="far fa-calendar-alt"></i> 2020 – 2024</div>
+                </div>
+                <ul>
+                    <li>Tutored high school and university students in Mathematics, Programming, and CS fundamentals</li>
+                    <li>Helped 20+ students improve academic performance through personalised lesson planning</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2><i class="fas fa-rocket"></i> Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-title">🏸 Connect Arena</div>
+                    <p class="project-desc">A mobile app that connects local indoor sports players to find and join games nearby.</p>
+                    <div class="project-details">
+                        <p><strong>Tech used:</strong> React Native, Node.js, REST API</p>
+                        <p style="margin-top: 0.5rem;"><strong>Features:</strong> Player matchmaking, real-time game sessions, indoor venue listings, user profiles</p>
+                    </div>
+                    <a href="https://github.com/connect-arena" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🏎️ F1 Bookings</div>
+                    <p class="project-desc">A real-time Formula 1 ticket booking website with live seat availability.</p>
+                    <div class="project-details">
+                        <p><strong>Tech used:</strong> JavaScript, Node.js, HTML, CSS</p>
+                        <p style="margin-top: 0.5rem;"><strong>Features:</strong> Real-time seat selection, race calendar, booking confirmation system</p>
+                    </div>
+                    <a href="https://github.com/f1bookings" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-title">🚗 Vehicle Detection</div>
+                    <p class="project-desc">Machine learning model for real-time detection and classification of vehicles from video/image feeds.</p>
+                    <div class="project-details">
+                        <p><strong>Tech used:</strong> Python, TensorFlow, NumPy, OpenCV</p>
+                        <p style="margin-top: 0.5rem;"><strong>Features:</strong> Multi-class vehicle detection, bounding box prediction, accuracy benchmarking</p>
+                    </div>
+                    <a href="https://github.com/vehicle-detection" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> View Code
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Abida Ahmed Sumaia. Designed & Coded with ❤️</p>
+    </footer>
+</div>
+
+</body>
+</html>
